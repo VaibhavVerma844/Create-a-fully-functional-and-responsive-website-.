@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Tower</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Colorful Modern Infinity Technology Free Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="boxicons.min.css">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="logo.png" alt=""></a>
+            <div class="nav-links" id="navLinks">
+                <i class='bx bx-x' onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.about-us.html">About</a></li>
+                    <li><a href="index.overview.html">Facilities</a></li>
+                    <li><a href="index.blog.html">Blog</a></li>
+                    <li><a href="index.contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <i class='bx bx-menu' onclick="showMenu()"></i>
+        </nav>
+
+        <h1>Contact Us</h1>
+    </section>
+
+    <!-- contact  content-->
+
+    <section class="location">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14010.27030096214!2d77.22416867763083!3d28.612746723154878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1733321846045!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+    </section>
+
+
+    <section class="contact-us">
+
+        <div class="row">
+
+            <div class="contact-col">
+                <div>
+                    <i class='bx bxs-home'></i>
+                    <span>
+                        <h5>XYZ Road, ABC Building</h5>
+                        <p>New Delhi, Delhi, INDIA</p>
+                    </span>
+                </div>
+                <div>
+                    <i class='bx bxs-phone'></i>
+                    <span>
+                        <h5>+91 0123456789</h5>
+                        <p>Monday To Saturday, 10AM TO 6PM</p>
+                    </span>
+                </div>
+                <div>
+                    <i class='bx bx-envelope'></i>
+                    <span>
+                        <h5>info@gmail.com</h5>
+                        <p>Email us your query</p>
+                    </span>
+                </div>
+            </div>
+            <div class="contact-col">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="name" placeholder="Enter your Name" required>
+                    <input type="email" name="email" placeholder="Enter your E-Mail" required>
+                    <input type="number" name="number" placeholder="Enter your Number" required>
+                    <textarea rows="10" name="message" placeholder="Enter your Message"></textarea>
+                    <button type="submit" class="hero-btn">Send Message</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- footer -->
+
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod, voluptatem! Voluptates, nobis. Voluptatem quas, <br>iste illo nesciunt asperiores expedita eius eveniet nemo quibusdam, itaque ipsam magnam, voluptatum dolor quam error.</p>
+
+        <div class="icons">
+            <i class='bx bxl-facebook-circle'></i>
+            <i class='bx bxl-twitter'></i>
+            <i class='bx bxl-instagram'></i>
+            <i class='bx bxl-linkedin'></i>
+        </div>
+        <p> Made with <i class='bx bxs-heart'></i> by Vaibhav Verma</p>
+
+    </section>
+
+
+
+    <script src="main.js"></script>
+
+
+    <form name="submit-to-google-sheet">
+        <input name="email" type="email" placeholder="Email" required>
+        <button type="submit">Send</button>
+      </form>
+      
+      <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwZZQLN9_l6gnblh4LwfNXMQprdjFj_miXMjVijKHlconxyAJvwXH4UUmxa-f71vqCE/exec'
+        const form = document.forms['submit-to-google-sheet']
+
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message Sent Successfully"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                }, 5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</html>
